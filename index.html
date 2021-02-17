@@ -41,10 +41,20 @@
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/aviaryan/BigEval.js@3.1.0/BigEval.min.js"></script>
       <script>
         function num2xdi8(num) {
-            return num.replace(/9/g,'q').replace(/0/g,'o');
+          num = num.replace(/9/g,'q');
+          num = num.replace(/T/g,'0').replace(/o/g,'0');
+          num = num.replace(/(\d)0/g,'$1T').replace(/([Tqon])0/g,'$1T');
+          for (i = 0; i < num.length; i++) {
+            num = num.replace(/\.([0123456789qoT]*?)T/g, '.$1o');
+          }
+          num = num.replace(/0/g, 'o')
+          return num
         }
         function xdi82num(num) {
-            return num.replace(/q/g,'9').replace(/o/g,'0').replace(/c0s/g,'cos').replace(/s9rt/g,'sqrt').replace(/l0g/g,'log');
+          num = num.replace(/q/g,'9').replace(/o/g,'0').replace(/T/g,'0');
+          num = num.replace(/([a-z])0/g,'$1o').replace(/([a-z])9/g,'$1q');
+          num = num.replace(/0([a-z])/g,'o$1').replace(/9([a-z])/g,'q$1');
+          return num
         }
 
         function calculate() {
@@ -81,8 +91,13 @@
         }
 
         function updateInput() {
-          var input = document.getElementById("expression").value;
+          var expression = document.getElementById("expression");
+          var input = expression.value;
+          var start = expression.selectionStart;
+          var end = expression.selectionEnd;
           document.getElementById("expression").value = num2xdi8(input)
+          document.getElementById("expression").selectionStart = start
+          document.getElementById("expression").selectionEnd = end
         }
       </script>
     </div>
