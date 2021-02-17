@@ -24,7 +24,7 @@
     <div class="head">
       <h1><caps>x</caps>di8 <caps>h</caps>uo-su2-4oquV</h1>
       <p><caps>l</caps>YV-y3 <b>*</b> lY zor c3-hiaE; lYV-y3 <b>/</b> lY zor Bio-hiaE; lYV-y3 <b>**</b> lY zor mAbp-su2.
-      <br><caps>H</caps>ua-Ha8 ce-xueV zyu8-su2, rA k2-Ne h2H-su6H, BiT-su6H <b>E</b> ofie <b>pi</b>, <b>log</b> FY2.</p>
+      <br><caps>H</caps>ua-Ha8 ce-xueV zyu8-su2, rA k2-Ne h2H-su6H, BiT-su6H <b>E</b> ofie <b>pi</b>, <b>log</b> FY2.</p>
       <noscript>
           For this calculator to work you need to turn on JavaScript.   You currently have JavaScript switched off.   Here are the <a href="http://www.enable-javascript.com/" target="_blank">instructions how to enable JavaScript in your web browser</a>.
       </noscript>
@@ -32,9 +32,9 @@
     <br>
     <!-- The calculator UI -->
     <div class="calculator">
-    <input type="text" id="expression" name="expression" onchange="calculate()" onkeyup="updateInput();calculate()" placeholder="sqrt(E**(acos(-1)-pi)+5!)" autofocus>
+    <input type="text" id="expression" name="expression" onchange="calculate()" onkeyup="updateInput();calculate()" placeholder="cos ( ( ( sqrt ( E ** ( acos(-1) - pi ) + 5! ) - 1 ) / 1T ) *pi ) + 1e-o" autofocus>
     <br>
-    <h1 id="answer">·11·</h1>
+    <h1 id="answer">·o·</h1>
     <p><a class="comment" target="_blank" href='http://nyoeghau.com/'>nyoeghau.com</a></p>
     </div>
       <!-- The backend of the calculator -->
@@ -43,22 +43,23 @@
         // translations
         function num2xdi8(num) {
           num = num.replace(/9/g,'q');
+          // o or T?
           num = num.replace(/T/g,'0').replace(/o/g,'0');
           num = num.replace(/(\d)0/g,'$1T').replace(/([Tqon])0/g,'$1T');
           for (i = 0; i < num.length; i++) {
-            num = num.replace(/\.([0123456789qoT]*?)T/g, '.$1o');
+            num = num.replace(/\.([0123456789qoT]*?)T/, '.$1o');
           }
           num = num.replace(/0/g, 'o')
 
-          num = num.replace(/true/g, 'Hu8').replace(/false/g, 'juaV').replace(/Infinity/, 'w6-q3-da')
+          num = num.replace(/true/g, 'Hu8').replace(/false/g, 'juaV').replace(/Infinity/g, 'w6-q3-da')
           return num
         }
         function xdi82num(num) {
           num = num.replace(/q/g,'9').replace(/o/g,'0').replace(/T/g,'0');
-          num = num.replace(/([a-z])0/g,'$1o').replace(/([a-z])9/g,'$1q');
-          num = num.replace(/0([a-z])/g,'o$1').replace(/9([a-z])/g,'q$1');
+          num = num.replace(/([abcdfghijklmnopqrstuvwxyz])0/g,'$1o').replace(/([abcdfghijklmnopqrstuvwxyz])9/g,'$1q');
+          num = num.replace(/0([abcdfghijklmnopqrstuvwxyz])/g,'o$1').replace(/9([abcdfghijklmnopqrstuvwxyz])/g,'q$1');
 
-          num = num.replace(/Hu8/g, 'true').replace(/juaV/g, 'false').replace(/w6-q3-da/, 'Infinity')
+          num = num.replace(/Hu8/g, 'true').replace(/juaV/g, 'false').replace(/w6-q3-da/g, 'Infinity')
           return num
         }
 
@@ -91,7 +92,7 @@
 
           // default 11
           if (revisedInput === '') {
-            document.getElementById("answer").innerHTML = "·11·";
+            document.getElementById("answer").innerHTML = "·o·";
           }
 
         }
