@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "Fira Xdi8";
+  src: url('https://cdn.jsdelivr.net/gh/edward-martyr/syyon-vencie@2f449da/FiraXdi8-Regular-subset.ttf') format('ttf');
+}
+
+@font-face {
+font-family: 'Fira Xdi8 Variable';
+src: url('https://cdn.jsdelivr.net/gh/edward-martyr/syyon-vencie@2f449da/Fira%20Xdi8%20Variable-subset.woff2') format('woff2-variations');
+font-weight: 100 900;
+}
+
+* {
+  font-family: 'Fira Xdi8 Variable', "Fira Xdi8", "FiraGO", "Fira Sans", "MI Lan Pro VF", sans-serif;
+}
+
+caps {
+  -moz-font-feature-settings: 'case'; 
+  -webkit-font-feature-settings: 'case'; 
+  font-feature-settings: 'case' on; 
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+html {
+  display: table;
+}
+body {
+  display: table-cell;
+  vertical-align: middle;
+  background: #f2f2f2;
+}
+
+h1 {
+  font-family: 'Fira Xdi8 Variable', sans-serif;
+  font-weight: 150;
+  text-align: center;
+}
+
+#expression {
+  font-family: 'Fira Xdi8 Variable', sans-serif;
+  font-weight: 100;
+  text-align: center;
+  width: 100%;
+  height: 90px;
+  font-size: 2em;
+}
+
+p {
+  font-family: 'Fira Xdi8 Variable', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+textarea {
+  font-family: 'Fira Xdi8 Variable', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+noscript {
+    font-family: 'Fira Xdi8 Variable', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: red;
+}
+
+div {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  font-weight: 180;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-weight: 180;
+}
+
+::placeholder {
+  font-weight: 180;
+}
+
+#answer {
+  font-family: 'Fira Xdi8 Variable', sans-serif;
+  font-weight: 150;
+  text-align: center;
+  color: rgb(61, 47, 41);
+  height: 5em;
+}
+
+@media (max-width:550px) {
+  #expression {
+    font-size: 1em;
+    height: 50px;
+  }
+  #reset {
+    font-size: 1em
+  }
+}
+
+@media (max-width: 320px) {
+  #expression {
+    font-size: 0.75em;
+    height: 30px;
+  }
+}
