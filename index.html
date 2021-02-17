@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>希顶计算器</title>
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/edward-martyr/syyon-vencie@8da2bc1/Fira%20Xdi8%20Variable.woff2" as="font" type="font/woff2-variations" crossorigin>
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/edward-martyr/syyon-vencie@f649614/BigEval.min.js" as="script" type="text/javascript" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/aviaryan/BigEval.js@3.1.0/BigEval.min.js" as="script" type="text/javascript" crossorigin>
     <link href='stylesheet.css' rel='stylesheet' type='text/css'>
   	<meta name="description" content="Xdi8 calculator.">
     <meta name="keywords" content="xdi8, calculator, maths, calculate, math, add, subtract, multiply, divide">
@@ -23,7 +23,8 @@
     <!-- Intro -->
     <div class="head">
       <h1><caps>x</caps>di8 <caps>h</caps>uo-su2-4oquV</h1>
-      <p><caps>l</caps>YV y3 * lY zor c3 hiaE; lYV y3 / lY zor Bio hiaE; lYV y3 ** lY zor mAbp su2.</p>
+      <p><caps>l</caps>YV-y3 <b>*</b> lY zor c3-hiaE; lYV-y3 <b>/</b> lY zor Bio-hiaE; lYV-y3 <b>**</b> lY zor mAbp-su2.
+      <br><caps>H</caps>ua-Ha8 ce-xueV zyu8-su2, rA k2-Ne h2H-su6H, BiT-su6H <b>E</b> ofie <b>pi</b>, <b>log</b> FY2.</p>
       <noscript>
           For this calculator to work you need to turn on JavaScript.   You currently have JavaScript switched off.   Here are the <a href="http://www.enable-javascript.com/" target="_blank">instructions how to enable JavaScript in your web browser</a>.
       </noscript>
@@ -37,13 +38,13 @@
     <p><a class="comment" target="_blank" href='http://nyoeghau.com/'>nyoeghau.com</a></p>
     </div>
       <!-- The backend of the calculator -->
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/edward-martyr/syyon-vencie@f649614/BigEval.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/aviaryan/BigEval.js@3.1.0/BigEval.min.js"></script>
       <script>
         function num2xdi8(num) {
             return num.replace(/9/g,'q').replace(/0/g,'o');
         }
         function xdi82num(num) {
-            return num.replace(/q/g,'9').replace(/o/g,'0').replace(/c0s/g,'cos').replace(/s9rt/g,'sqrt');
+            return num.replace(/q/g,'9').replace(/o/g,'0').replace(/c0s/g,'cos').replace(/s9rt/g,'sqrt').replace(/l0g/g,'log');
         }
 
         function calculate() {
@@ -64,17 +65,17 @@
           var output = Obj.exec(revisedInput);
           // var output = eval(revisedInput);
           if (typeof output === 'string') {
-            output = "";
+            output = "·";
           } else if (typeof output === 'number' && isNaN(output)) {
-            output = "";
+            output = "·";
           } else if (typeof output === 'undefined') {
-            output = "";
+            output = "·";
           }
 
-          document.getElementById("answer").innerHTML = num2xdi8(output.toString());
+          document.getElementById("answer").innerHTML = "·"+num2xdi8(output.toString())+"·";
 
           if (revisedInput === '') {
-            document.getElementById("answer").innerHTML = "11";
+            document.getElementById("answer").innerHTML = "·11·";
           }
 
         }

@@ -54,6 +54,10 @@ p {
   text-align: center;
 }
 
+b {
+  font-weight: 500;
+}
+
 .comment{
   font-size: 80%;
   color: rgb(51, 65, 65);
