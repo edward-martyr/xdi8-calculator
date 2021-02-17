@@ -40,6 +40,7 @@
       <!-- The backend of the calculator -->
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/aviaryan/BigEval.js@3.1.0/BigEval.min.js"></script>
       <script>
+        // translations
         function num2xdi8(num) {
           num = num.replace(/9/g,'q');
           num = num.replace(/T/g,'0').replace(/o/g,'0');
@@ -48,15 +49,20 @@
             num = num.replace(/\.([0123456789qoT]*?)T/g, '.$1o');
           }
           num = num.replace(/0/g, 'o')
+
+          num = num.replace(/true/g, 'Hu8').replace(/false/g, 'juaV').replace(/Infinity/, 'w6-q3-da')
           return num
         }
         function xdi82num(num) {
           num = num.replace(/q/g,'9').replace(/o/g,'0').replace(/T/g,'0');
           num = num.replace(/([a-z])0/g,'$1o').replace(/([a-z])9/g,'$1q');
           num = num.replace(/0([a-z])/g,'o$1').replace(/9([a-z])/g,'q$1');
+
+          num = num.replace(/Hu8/g, 'true').replace(/juaV/g, 'false').replace(/w6-q3-da/, 'Infinity')
           return num
         }
 
+        // calculate
         function calculate() {
           var input = document.getElementById("expression").value;
           var revisedInput;
@@ -70,7 +76,6 @@
           revisedInput = xdi82num(revisedInput)
 
           //rest of the testing for code to be interpreted goes here
-
           var Obj = new BigEval();
           var output = Obj.exec(revisedInput);
           // var output = eval(revisedInput);
@@ -84,12 +89,14 @@
 
           document.getElementById("answer").innerHTML = "·"+num2xdi8(output.toString())+"·";
 
+          // default 11
           if (revisedInput === '') {
             document.getElementById("answer").innerHTML = "·11·";
           }
 
         }
 
+        // update input
         function updateInput() {
           var expression = document.getElementById("expression");
           var input = expression.value;
