@@ -45,16 +45,10 @@ h1 {
   text-align: center;
   width: 100%;
   height: 90px;
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 p {
-  font-family: 'Fira Xdi8 Variable', sans-serif;
-  font-weight: 300;
-  text-align: center;
-}
-
-textarea {
   font-family: 'Fira Xdi8 Variable', sans-serif;
   font-weight: 300;
   text-align: center;
