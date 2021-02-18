@@ -45,8 +45,8 @@
           num = num.replace(/9/g,'q');
           // o or T?
           num = num.replace(/T/g,'0').replace(/o/g,'0');
-          num = num.replace(/(\d)0/g,'$1T').replace(/([Tqon])0/g,'$1T');
           for (i = 0; i < num.length; i++) {
+            num = num.replace(/([0123456789qoT])0/,'$1T');
             num = num.replace(/\.([0123456789qoT]*?)T/, '.$1o');
           }
           num = num.replace(/0/g, 'o')
@@ -94,7 +94,6 @@
           if (revisedInput === '') {
             document.getElementById("answer").innerHTML = "·o·";
           }
-
         }
 
         // update input
